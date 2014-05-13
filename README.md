@@ -3,27 +3,27 @@
 # TASKS
 
 * JSON Configuration 
- * $HOME/.twilio-go.json
- * BaseUrl, default: https://api.twilio.com/2010-04-01
- * AccountSid
- * AuthToken
+ * TODO: $HOME/.twilio-go.json
+ * TODO: BaseUrl, default: https://api.twilio.com/2010-04-01
+ * TODO: AccountSid
+ * TODO: AuthToken
 * twilio.Client
- * create struct, accepts AccountSid, AuthToken
- * implement GET    (passes AccountSid:Authstruct as http-basic auth)
- * implement PUT    (passes AccountSid:Authstruct as http-basic auth)
- * implement POST   (passes AccountSid:Authstruct as http-basic auth)
- * implement DELETE (passes AccountSid:Authstruct as http-basic auth)
+ * DONE: create struct, accepts AccountSid, AuthToken
+ * TODO: implement GET    (passes AccountSid:Authstruct as http-basic auth)
+ * TODO: implement PUT    (passes AccountSid:Authstruct as http-basic auth)
+ * TODO: implement POST   (passes AccountSid:Authstruct as http-basic auth)
+ * TODO: implement DELETE (passes AccountSid:Authstruct as http-basic auth)
 * APIs
- * Calls
+ * TODO: Calls
   * https://www.twilio.com/docs/api/rest/making-calls
- * Call Queues
- * Messaging (SMS)
- * Phone Numbers
- * Usage
- * Accounts
- * Applications
- * SIP
- * Miscellaneous
+ * TODO: Call Queues
+ * TODO: Messaging (SMS)
+ * TODO: Phone Numbers
+ * TODO: Usage
+ * TODO: Accounts
+ * TODO: Applications
+ * TODO: SIP
+ * TODO: Miscellaneous
 
 # References 
 
