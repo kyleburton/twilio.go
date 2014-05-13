@@ -95,17 +95,18 @@ func TestUnmarshal(t *testing.T) {
 // TODO: need to start a simple mock http server to run tests vs the api
 func TestGetAccount(t *testing.T) {
 	DefaultClient.Verbose = testing.Verbose()
-	res, body, err := DefaultClient.GetAccount()
+	_, body, err := DefaultClient.GetAccount()
 	if err != nil {
 		t.Errorf("TestGetAccount(%s) :: error: %s", DefaultClient, err)
 	}
 
 	if testing.Verbose() {
-		fmt.Fprintf(os.Stderr, "TestGetAccount: res=%s\n", res)
+		fmt.Fprintf(os.Stderr, "TestGetAccount: body=%s\n", body)
 	}
 
 	if testing.Verbose() {
-		fmt.Fprintf(os.Stderr, "TestGetAccount: body=%s\n", body)
+    s, err := DefaultClient.AccountInfo.ToJsonStr()
+		fmt.Fprintf(os.Stderr, "TestGetAccount: client.AccountInfo=%s err=%s\n", s, err)
 	}
 
 	// make assertions about res

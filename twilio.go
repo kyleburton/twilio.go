@@ -17,7 +17,7 @@ type Client struct {
 	AuthToken   string
 	BaseUrl     string
 	Verbose     bool
-	AccountInfo AccountResponse
+	AccountInfo *AccountResponse
 }
 
 type AccountResponse struct {
@@ -30,6 +30,11 @@ type AccountResponse struct {
 	Auth_token       string
 	Uri              string
 	Subresource_uris map[string]string
+}
+
+func (self *AccountResponse) ToJsonStr () (string, error) {
+  data, err := json.Marshal(self)
+  return string(data), err
 }
 
 func (self *Client) MakeUrl(path string, params *url.Values) string {
@@ -121,13 +126,14 @@ func (self *Client) GetAccount() (*http.Response, *AccountResponse, error) {
 		fmt.Fprintf(os.Stderr, "GetAccount: body=`%s`\n", body)
 	}
 
-	var result AccountResponse
-	err = json.Unmarshal(body, &result)
+	result := &AccountResponse{}
+	err = json.Unmarshal(body, result)
 	if err != nil {
 		return resp, nil, err
 	}
 
 	self.AccountInfo = result
 
-	return resp, &result, nil
+	return resp, result, nil
 }
+
