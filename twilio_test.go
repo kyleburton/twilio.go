@@ -31,3 +31,21 @@ func TestMakeUrl (t *testing.T) {
 		t.Errorf("TestMakeUrl(%s) :: %s != %s", client, client.MakeUrl("foof", nil), expectedUrl )
   }
 }
+
+func TestUnmarshal (t *testing.T) {
+  data := []byte(`{"AccountSid": "banana", "AuthToken": "kimchee", "BaseUrl": "https://ha.ha/9999-99-99"}`)
+  client := &Client{}
+  client.Unmarshal(data)
+
+  if client.AccountSid != "banana" {
+		t.Errorf("TestMakeClient(%s) :: %s != %s", client, "banana", client.AccountSid)
+  }
+
+  if client.AuthToken != "kimchee" {
+		t.Errorf("TestMakeClient(%s) :: %s != %s", client, "kimchee", client.AuthToken)
+  }
+
+  if client.BaseUrl != "https://ha.ha/9999-99-99" {
+		t.Errorf("TestMakeClient(%s) :: %s != %s", client, "https://ha.ha/9999-99-99", client.BaseUrl)
+  }
+}

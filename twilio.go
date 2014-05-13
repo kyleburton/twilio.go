@@ -1,7 +1,9 @@
 package twilio
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/url"
 )
 
@@ -24,4 +26,17 @@ func (self *Client) MakeUrl (path string, params *url.Values) string {
   }
 	url := fmt.Sprintf("%s/Accounts/%s/%s?", baseUrl, self.AccountSid, path) + params.Encode()
   return url
+}
+
+func (self *Client) LoadJsonConfig (path string) error {
+	data, e := ioutil.ReadFile(path)
+	if e != nil {
+		return e
+	}
+  self.Unmarshal(data)
+  return nil
+}
+
+func (self *Client) Unmarshal (data []byte) {
+	json.Unmarshal(data, self)
 }
