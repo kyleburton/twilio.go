@@ -1,16 +1,15 @@
-package main
+package twilio
 
 import (
-	"strings"
+	//"strings"
 	"testing"
-	"github.com/kyleburton/twilio-go"
 )
 
 
 func TestMakeClient(t *testing.T) {
   sid := "banana"
   token := "kimchee"
-  client = &twilio.Client {
+  client := &Client {
     AccountSid: sid,
     AuthToken:  token,
   }
