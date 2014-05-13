@@ -3,6 +3,7 @@
 # TASKS
 
 * JSON Configuration 
+ * DONE: unmarshal from json []byte
  * TODO: $HOME/.twilio-go.json
  * TODO: BaseUrl, default: https://api.twilio.com/2010-04-01
  * TODO: AccountSid
